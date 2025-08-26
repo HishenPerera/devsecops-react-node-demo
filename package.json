@@ -1,0 +1,16 @@
+{
+  "name": "devsecops-react-node-demo",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "postinstall": "npm --prefix frontend install && npm --prefix backend install",
+    "dev": "concurrently -n FRONTEND,BACKEND -c auto \"npm --prefix frontend run dev\" \"npm --prefix backend run dev\"",
+    "test": "npm --prefix backend test && npm --prefix frontend test",
+    "lint": "npm --prefix backend run lint && npm --prefix frontend run lint",
+    "audit": "npm audit --audit-level=moderate || true",
+    "gitleaks": "gitleaks detect --no-banner --redact || true"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

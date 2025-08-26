@@ -1,0 +1,8 @@
+title = "Minimal gitleaks config"
+
+[allowlist]
+description = "Allow common test strings"
+paths = [
+  '''frontend/.*/test/.*''',
+  '''backend/.*/__tests__/.*'''
+]
